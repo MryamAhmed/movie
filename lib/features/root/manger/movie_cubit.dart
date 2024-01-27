@@ -1,9 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:movies/features/search/presentation/view/search_screen.dart';
-import 'package:movies/features/watched_list/presenttion/view/watched_list.dart';
 
 import '../../home/presentation/view/home_screen.dart';
+import '../../watched_list/presentation/view/watched_list.dart';
 
 part 'movie_state.dart';
 
@@ -24,7 +24,6 @@ class MovieCubit extends Cubit<MovieState> {
 
   void changeIndex(int index) {
     currentIndex = index;
-    print('current index is $currentIndex');
     emit(AppChangeBottomNavbarState());
   }
 }

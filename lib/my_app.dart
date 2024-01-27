@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:movies/core/utils/app_router.dart';
 

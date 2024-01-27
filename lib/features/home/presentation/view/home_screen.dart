@@ -4,8 +4,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../core/utils/service_locator.dart';
 import '../manger/get_popular_movies_cubit.dart';
-import '../manger/get_recommende_movies_cubit.dart';
-import '../manger/get_up_comming_movie_cubit.dart';
+import '../manger/get_recommend_movies_cubit.dart';
+import '../manger/get_up_coming_movie_cubit.dart';
 import 'widget/home_screen_body.dart';
 
 class HomeView extends StatelessWidget {
@@ -17,10 +17,10 @@ class HomeView extends StatelessWidget {
       providers: [
         BlocProvider(
             create: (BuildContext context) =>
-                getIt<GetUpCommingMovieCubit>()..getUpComingMovies()),
+                getIt<GetUpComingMovieCubit>()..getUpComingMovies()),
         BlocProvider(
             create: (BuildContext context) =>
-                getIt<GetRecommendeMoviesCubit>()..getRecommendedMovies()),
+                getIt<GetRecommendMoviesCubit>()..getRecommendedMovies()),
         BlocProvider(
             create: (BuildContext context) =>
                 getIt<GetPopularMoviesCubit>()..getPopularMovies()),

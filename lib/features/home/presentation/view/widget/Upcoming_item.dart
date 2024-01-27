@@ -1,27 +1,27 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:movies/features/home/data/models/movie_details_model.dart';
-import 'package:movies/features/watched_list/presenttion/manager/togel_movie_cubit.dart';
+import 'package:movies/features/watched_list/presentation/manager/togel_movie_cubit.dart';
 
 import '../../../../../core/utils/service_locator.dart';
 import 'sections/movie_details/movie_details.dart';
 
 class UpcomingItem extends StatelessWidget {
-  const UpcomingItem({Key? key, required this.moveiModel}) : super(key: key);
+  const UpcomingItem({Key? key, required this.movei}) : super(key: key);
 
-  final MovieDetailsModel moveiModel;
+  final MovieDetailsModel movei;
 
   @override
   Widget build(BuildContext context) {
     var isWishListed =
-        getIt<TogelMovieCubit>().movieBox.keys.contains(moveiModel.id);
+        getIt<togelMovieCubit>().movieBox.keys.contains(movei.id);
     return GestureDetector(
       onTap: () {
         Navigator.push(
           context,
           MaterialPageRoute(
               builder: (context) => MovieDetails(
-                    movieId: moveiModel.id!,
+                    movieId: movei.id!,
                   )),
         );
       },
@@ -37,7 +37,7 @@ class UpcomingItem extends StatelessWidget {
                     aspectRatio: 1 / 1.2,
                     child: CachedNetworkImage(
                       imageUrl:
-                          'https://image.tmdb.org/t/p/w500${moveiModel.posterPath!}',
+                          'https://image.tmdb.org/t/p/w500${movei.posterPath!}',
                       fit: BoxFit.fill,
                       errorWidget: (context, url, error) =>
                           const Icon(Icons.alarm),
@@ -50,8 +50,7 @@ class UpcomingItem extends StatelessWidget {
               left: 0,
               child: InkWell(
                 onTap: () {
-                  getIt<TogelMovieCubit>()
-                      .toggleWatchList(moveiModel.id!, moveiModel);
+                  getIt<togelMovieCubit>().toggleWatchList(movei.id!, movei);
                 },
                 child: Container(
                   width: 32,

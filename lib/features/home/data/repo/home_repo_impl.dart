@@ -1,9 +1,9 @@
 import 'package:dartz/dartz.dart';
-import 'package:movies/core/errors/failure.dart';
 import 'package:movies/core/utils/api_service.dart';
 import 'package:movies/features/home/data/repo/home_repo.dart';
+import 'package:movies/features/splash/errors/failure.dart';
+
 import '../models/movie_details_model.dart';
-import '../models/movie_model.dart';
 
 class HomeRepoImplementation implements HomeRepo {
   final ApiServices apiService;
@@ -51,7 +51,8 @@ class HomeRepoImplementation implements HomeRepo {
   }
 
   @override
-  Future<Either<Failure, List<MovieDetailsModel>>> getRecommendedMovies() async {
+  Future<Either<Failure, List<MovieDetailsModel>>>
+      getRecommendedMovies() async {
     try {
       var data = await apiService.get(endPoint: '/3/movie/top_rated');
 
@@ -77,7 +78,8 @@ class HomeRepoImplementation implements HomeRepo {
   }
 
   @override
-  Future<Either<Failure, MovieDetailsModel>> getMovieDetails(num movie_id) async {
+  Future<Either<Failure, MovieDetailsModel>> getMovieDetails(
+      num movie_id) async {
     try {
       var data = await apiService.get(endPoint: '/3/movie/${movie_id}');
 
@@ -100,7 +102,8 @@ class HomeRepoImplementation implements HomeRepo {
   }
 
   @override
-  Future<Either<Failure, List<MovieDetailsModel>>> getSimilarMovies(num movie_id) async {
+  Future<Either<Failure, List<MovieDetailsModel>>> getSimilarMovies(
+      num movie_id) async {
     try {
       var data = await apiService.get(endPoint: '/3/movie/${movie_id}/similar');
 

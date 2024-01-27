@@ -1,9 +1,9 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:movies/features/home/data/models/movie_details_model.dart';
-import 'package:movies/features/watched_list/presenttion/manager/togel_movie_cubit.dart';
 
 import '../../../../../core/utils/service_locator.dart';
+import '../../../../watched_list/presentation/manager/togel_movie_cubit.dart';
 import 'sections/movie_details/movie_details.dart';
 
 class TopRatedItem extends StatelessWidget {
@@ -14,7 +14,7 @@ class TopRatedItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final isWishListed =
-        getIt<TogelMovieCubit>().movieBox.keys.contains(moveiModel.id);
+        getIt<togelMovieCubit>().movieBox.keys.contains(moveiModel.id);
     return GestureDetector(
       onTap: () {
         Navigator.push(
@@ -53,7 +53,7 @@ class TopRatedItem extends StatelessWidget {
                   left: 0,
                   child: InkWell(
                     onTap: () {
-                      getIt<TogelMovieCubit>()
+                      getIt<togelMovieCubit>()
                           .toggleWatchList(moveiModel.id!, moveiModel);
                     },
                     child: Container(
@@ -72,7 +72,7 @@ class TopRatedItem extends StatelessWidget {
                   ))
             ],
           ),
-          Container(
+          SizedBox(
             width: 110,
             child: Text(
               moveiModel.title!,

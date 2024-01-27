@@ -1,10 +1,8 @@
 part of 'movie_details_cubit.dart';
 
-@immutable
 abstract class MovieDetailsState {}
 
 class MovieDetailsInitial extends MovieDetailsState {}
-
 
 class GetMovieDetailsLoading extends MovieDetailsState {}
 
@@ -17,4 +15,3 @@ class GetMovieDetailsSuccess extends MovieDetailsState {
   final MovieDetailsModel movieDetails;
   GetMovieDetailsSuccess(this.movieDetails);
 }
-

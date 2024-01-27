@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:movies/core/utils/api_service.dart';
 import 'package:movies/core/widgets/custom_error.dart';
-import 'package:movies/features/home/data/repo/home_repo_imple.dart';
+import 'package:movies/features/home/data/repo/home_repo_impl.dart';
 import 'package:movies/features/home/presentation/manger/more_like_this_cubit.dart';
 import 'package:movies/features/home/presentation/manger/movie_details_cubit.dart';
 import 'package:movies/features/home/presentation/view/widget/sections/movie_details/more_like_this_list_view.dart';

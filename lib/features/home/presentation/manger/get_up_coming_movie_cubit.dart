@@ -1,15 +1,13 @@
 import 'package:bloc/bloc.dart';
 import 'package:dartz/dartz.dart';
-import 'package:meta/meta.dart';
 import 'package:movies/features/home/data/models/movie_details_model.dart';
 
-import '../../../../core/errors/failure.dart';
+import '../../../splash/errors/failure.dart';
 import '../../data/repo/home_repo.dart';
+import 'get_up_coming_movie_state.dart';
 
-part 'get_up_comming_movie_state.dart';
-
-class GetUpCommingMovieCubit extends Cubit<GetUpCommingMovieState> {
-  GetUpCommingMovieCubit(this.homeRepo) : super(GetUpCommingMovieInitial());
+class GetUpComingMovieCubit extends Cubit<GetUpComingMovieState> {
+  GetUpComingMovieCubit(this.homeRepo) : super(GetUpComingMovieInitial());
 
   final HomeRepo homeRepo;
 
@@ -17,8 +15,6 @@ class GetUpCommingMovieCubit extends Cubit<GetUpCommingMovieState> {
     emit(GetUpComingMoviesLoading());
 
     var x = await homeRepo.getUpComingMovies();
-
-    print('data is $x');
 
     x.fold((l) => emit(GetUpComingMoviesFailure(l.toString())),
         (r) => emit(GetUpComingMoviesSuccess(r)));

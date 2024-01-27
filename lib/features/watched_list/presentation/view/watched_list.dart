@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:movies/features/watched_list/presenttion/view/wedgit/watched_list_body.dart';
 
 import '../../../../core/utils/service_locator.dart';
 import '../manager/togel_movie_cubit.dart';
+import 'widget/watched_list_body.dart';
 
 class WatchedList extends StatelessWidget {
   const WatchedList({Key? key}) : super(key: key);
@@ -11,7 +11,7 @@ class WatchedList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (BuildContext context) => getIt<TogelMovieCubit>(),
+      create: (BuildContext context) => getIt<togelMovieCubit>(),
       child: const Padding(
         padding: EdgeInsets.all(16.0),
         child: SafeArea(
@@ -20,7 +20,7 @@ class WatchedList extends StatelessWidget {
               Padding(
                 padding: EdgeInsets.all(16.0),
                 child: Text(
-                  'WactchList',
+                  'WatchList',
                   style: TextStyle(fontSize: 20),
                 ),
               ),

@@ -2,11 +2,11 @@ import 'package:dio/dio.dart';
 import 'package:get_it/get_it.dart';
 
 import '../../features/home/data/repo/home_repo.dart';
-import '../../features/home/data/repo/home_repo_imple.dart';
+import '../../features/home/data/repo/home_repo_impl.dart';
 import '../../features/home/presentation/manger/get_popular_movies_cubit.dart';
-import '../../features/home/presentation/manger/get_recommende_movies_cubit.dart';
-import '../../features/home/presentation/manger/get_up_comming_movie_cubit.dart';
-import '../../features/watched_list/presenttion/manager/togel_movie_cubit.dart';
+import '../../features/home/presentation/manger/get_recommend_movies_cubit.dart';
+import '../../features/home/presentation/manger/get_up_coming_movie_cubit.dart';
+import '../../features/watched_list/presentation/manager/togel_movie_cubit.dart';
 import 'api_service.dart';
 
 GetIt getIt = GetIt.instance;
@@ -17,20 +17,20 @@ void setupServiceLocator() {
   getIt.registerSingleton<ApiServices>(ApiServices(getIt()));
 
   getIt.registerSingleton<HomeRepo>(HomeRepoImplementation(
-    getIt<ApiServices>(),
+    getIt(),
   ));
 
   //cubits
-  getIt.registerSingleton<GetUpCommingMovieCubit>(
-      GetUpCommingMovieCubit(getIt()));
+  getIt
+      .registerSingleton<GetUpComingMovieCubit>(GetUpComingMovieCubit(getIt()));
 
-  getIt.registerSingleton<GetRecommendeMoviesCubit>(
-      GetRecommendeMoviesCubit(getIt()));
+  getIt.registerSingleton<GetRecommendMoviesCubit>(
+      GetRecommendMoviesCubit(getIt()));
 
   getIt
       .registerSingleton<GetPopularMoviesCubit>(GetPopularMoviesCubit(getIt()));
 
-  getIt.registerSingleton<TogelMovieCubit>(TogelMovieCubit());
+  getIt.registerSingleton<togelMovieCubit>(togelMovieCubit());
 
   ///
 }
