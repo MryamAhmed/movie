@@ -23,7 +23,6 @@ class HomeRepoImplementation implements HomeRepo {
 
       return right(moveiList);
     } on ServerFailure catch (e) {
-      print(' errror${e.errMessage}');
       return left(e);
     }
   }
@@ -41,11 +40,8 @@ class HomeRepoImplementation implements HomeRepo {
         moveiList.add(MovieDetailsModel.fromJson(item));
       }
 
-      print('dmyyy'); //didnt print  => printed after .data
-
       return right(moveiList);
     } on ServerFailure catch (e) {
-      print(' errror ${e.errMessage}');
       return left(e);
     }
   }
@@ -57,7 +53,6 @@ class HomeRepoImplementation implements HomeRepo {
       var data = await apiService.get(endPoint: '/3/movie/top_rated');
 
       print(data); //printed
-      // print(responseBody);
 
       List<MovieDetailsModel> moveiList = [];
 

@@ -14,27 +14,27 @@ GetIt getIt = GetIt.instance;
 void setupServiceLocator() {
   getIt.registerSingleton<Dio>(Dio());
 
-  getIt.registerSingleton<ApiServices>(ApiServices(getIt()));
+  getIt.registerSingleton<ApiServices>(
+    ApiServices(getIt()),
+  );
 
   getIt.registerSingleton<HomeRepo>(HomeRepoImplementation(
     getIt(),
   ));
 
   //cubits
-  getIt
-      .registerSingleton<GetUpComingMovieCubit>(GetUpComingMovieCubit(getIt()));
+  getIt.registerSingleton<GetUpComingMovieCubit>(
+    GetUpComingMovieCubit(getIt()),
+  );
 
   getIt.registerSingleton<GetRecommendMoviesCubit>(
       GetRecommendMoviesCubit(getIt()));
 
-  getIt
-      .registerSingleton<GetPopularMoviesCubit>(GetPopularMoviesCubit(getIt()));
+  getIt.registerSingleton<GetPopularMoviesCubit>(
+    GetPopularMoviesCubit(getIt()),
+  );
 
-  getIt.registerSingleton<togelMovieCubit>(togelMovieCubit());
-
-  ///
+  getIt.registerSingleton<togelMovieCubit>(
+    togelMovieCubit(),
+  );
 }
-
-//final GetPopularMoviesCubit cubit = getIt();
-
-//final  cubit = getIt<GetPopularMoviesCubit>();

@@ -11,8 +11,6 @@ class ApiServices {
   ApiServices(this._dio);
 
   Future<dynamic> get({required String endPoint, String? searchQuery}) async {
-    //https://api.themoviedb.org/3/movie/top_rated?api_key=79c05e937131679e01142ef81e800843
-
     try {
       var response = await _dio
           .get('$_baseUrl$endPoint?query=$searchQuery&api_key=$apiKey');
