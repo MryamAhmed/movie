@@ -1,8 +1,9 @@
 import 'package:dartz/dartz.dart';
-import 'package:movies/core/utils/api_service.dart';
-import 'package:movies/features/home/data/models/movie_details_model.dart';
-import 'package:movies/features/splash/errors/failure.dart';
+import 'package:flutter/material.dart';
 
+import '../../../../core/services/api_service.dart';
+import '../../../home/data/models/movie_details_model.dart';
+import '../../../splash/errors/failure.dart';
 import 'search_repo.dart';
 
 class SearchRepoImplementation implements SearchRepo {
@@ -14,7 +15,7 @@ class SearchRepoImplementation implements SearchRepo {
   Future<Either<Failure, List<MovieDetailsModel>>> searchMovie(
       String searchQuery) async {
     try {
-      var data = await apiService.get(endPoint: '/3/search/movie', queryPram: {
+      var data = await apiService.get(endPoint: '/3/search/movie', queryPrams: {
         'query': searchQuery,
       });
 
@@ -26,7 +27,7 @@ class SearchRepoImplementation implements SearchRepo {
 
       return right(moveiList);
     } on ServerFailure catch (e) {
-      print(' errror${e.errMessage}');
+      debugPrint(' errror${e.errMessage}');
       return left(e);
     }
   }
