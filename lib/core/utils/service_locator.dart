@@ -39,6 +39,12 @@ void setupServiceLocator() {
         ),
       );
 
+  getIt<Dio>().interceptors.add(InterceptorsWrapper(
+        onRequest: (options, handler) => options.queryParameters
+            .addAll({'api_key': '79c05e937131679e01142ef81e800843'}),
+        //.addAll({'api_key': '79c05e937131679e01142ef81e800843'}),
+      ));
+
   getIt.registerSingleton<ApiServices>(ApiServices(
     getIt(),
   ));
@@ -53,8 +59,7 @@ void setupServiceLocator() {
     getIt(),
   ));
 
-  getIt.registerSingleton<GetRecommendMoviesCubit>(
-      GetRecommendMoviesCubit(getIt()));
+  getIt.registerSingleton<GetRecommendMoviesCubit>(GetRecommendMoviesCubit());
 
   getIt.registerSingleton<GetPopularMoviesCubit>(GetPopularMoviesCubit(
     getIt(),

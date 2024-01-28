@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import '../../features/splash/errors/failure.dart';
 
 class ApiServices {
-  final apiKey = '79c05e937131679e01142ef81e800843';
+  //final apiKey = '79c05e937131679e01142ef81e800843';
 
   final Dio _dio;
 
@@ -12,11 +12,10 @@ class ApiServices {
 
   Future<dynamic> get({
     required String endPoint,
-    String? searchQuery,
+    Map<String, dynamic>? queryPram,
   }) async {
     try {
-      var response =
-          await _dio.get('$endPoint?query=$searchQuery&api_key=$apiKey');
+      var response = await _dio.get(endPoint, queryParameters: queryPram);
 
       return response.data;
 
@@ -32,3 +31,5 @@ class ApiServices {
     }
   }
 }
+
+final x = ApiServices(Dio());

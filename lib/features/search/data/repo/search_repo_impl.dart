@@ -12,10 +12,11 @@ class SearchRepoImplementation implements SearchRepo {
 
   @override
   Future<Either<Failure, List<MovieDetailsModel>>> searchMovie(
-      String search_query) async {
+      String searchQuery) async {
     try {
-      var data = await apiService.get(
-          endPoint: '/3/search/movie', searchQuery: search_query);
+      var data = await apiService.get(endPoint: '/3/search/movie', queryPram: {
+        'query': searchQuery,
+      });
 
       List<MovieDetailsModel> moveiList = [];
 
