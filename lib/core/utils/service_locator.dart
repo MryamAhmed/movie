@@ -1,4 +1,5 @@
 import 'package:dio/dio.dart';
+import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
 
 import '../../features/home/data/repo/home_repo.dart';
@@ -12,29 +13,54 @@ import 'api_service.dart';
 GetIt getIt = GetIt.instance;
 
 void setupServiceLocator() {
-  getIt.registerSingleton<Dio>(Dio());
-
-  getIt.registerSingleton<ApiServices>(
-    ApiServices(getIt()),
+  getIt.registerSingleton<Dio>(
+    Dio(
+      BaseOptions(
+        baseUrl: 'https://api.themoviedb.org',
+        connectTimeout: const Duration(seconds: 10),
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      ),
+    ),
   );
+
+  getIt<Dio>().interceptors.add(
+        LogInterceptor(
+          request: true,
+          requestBody: true,
+          requestHeader: true,
+          responseBody: true,
+          responseHeader: true,
+          error: true,
+          logPrint: (Object object) {
+            debugPrint(object.toString());
+          },
+        ),
+      );
+
+  getIt.registerSingleton<ApiServices>(ApiServices(
+    getIt(),
+  ));
 
   getIt.registerSingleton<HomeRepo>(HomeRepoImplementation(
     getIt(),
   ));
 
   //cubits
-  getIt.registerSingleton<GetUpComingMovieCubit>(
-    GetUpComingMovieCubit(getIt()),
-  );
+
+  getIt.registerSingleton<GetUpComingMovieCubit>(GetUpComingMovieCubit(
+    getIt(),
+  ));
 
   getIt.registerSingleton<GetRecommendMoviesCubit>(
       GetRecommendMoviesCubit(getIt()));
 
-  getIt.registerSingleton<GetPopularMoviesCubit>(
-    GetPopularMoviesCubit(getIt()),
-  );
+  getIt.registerSingleton<GetPopularMoviesCubit>(GetPopularMoviesCubit(
+    getIt(),
+  ));
 
-  getIt.registerSingleton<togelMovieCubit>(
-    togelMovieCubit(),
+  getIt.registerSingleton<ToggleMovieCubit>(
+    ToggleMovieCubit(),
   );
 }

@@ -14,7 +14,7 @@ class UpcomingItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var isWishListed =
-        getIt<togelMovieCubit>().movieBox.keys.contains(movei.id);
+        getIt<ToggleMovieCubit>().movieBox.keys.contains(movei.id);
     return GestureDetector(
       onTap: () {
         Navigator.push(
@@ -50,7 +50,7 @@ class UpcomingItem extends StatelessWidget {
               left: 0,
               child: InkWell(
                 onTap: () {
-                  getIt<togelMovieCubit>().toggleWatchList(movei.id!, movei);
+                  getIt<ToggleMovieCubit>().toggleWatchList(movei.id!, movei);
                 },
                 child: Container(
                   width: 32,

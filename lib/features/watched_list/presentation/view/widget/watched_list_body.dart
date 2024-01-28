@@ -11,13 +11,13 @@ class WatchedListBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<togelMovieCubit, TogelMovieState>(
+    return BlocBuilder<ToggleMovieCubit, TogelMovieState>(
       builder: (BuildContext context, state) {
-        if (getIt<togelMovieCubit>().movies.isNotEmpty) {
+        if (getIt<ToggleMovieCubit>().movies.isNotEmpty) {
           return Expanded(
             child: ListView.builder(
               scrollDirection: Axis.vertical,
-              itemCount: getIt<togelMovieCubit>().movies.length,
+              itemCount: getIt<ToggleMovieCubit>().movies.length,
               itemBuilder: (BuildContext context, int index) {
                 return Column(
                   children: [
@@ -27,14 +27,14 @@ class WatchedListBody extends StatelessWidget {
                           context,
                           MaterialPageRoute(
                               builder: (context) => MovieDetails(
-                                    movieId: getIt<togelMovieCubit>()
+                                    movieId: getIt<ToggleMovieCubit>()
                                         .movies[index]
                                         .id!,
                                   )),
                         );
                       },
                       child: WatchedMovieItem(
-                        result: getIt<togelMovieCubit>().movies[index],
+                        result: getIt<ToggleMovieCubit>().movies[index],
                       ),
                     ),
                     const SizedBox(

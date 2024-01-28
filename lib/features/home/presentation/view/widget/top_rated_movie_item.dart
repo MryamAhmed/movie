@@ -14,7 +14,7 @@ class TopRatedItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final isWishListed =
-        getIt<togelMovieCubit>().movieBox.keys.contains(moveiModel.id);
+        getIt<ToggleMovieCubit>().movieBox.keys.contains(moveiModel.id);
     return GestureDetector(
       onTap: () {
         Navigator.push(
@@ -53,7 +53,7 @@ class TopRatedItem extends StatelessWidget {
                   left: 0,
                   child: InkWell(
                     onTap: () {
-                      getIt<togelMovieCubit>()
+                      getIt<ToggleMovieCubit>()
                           .toggleWatchList(moveiModel.id!, moveiModel);
                     },
                     child: Container(

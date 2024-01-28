@@ -11,7 +11,7 @@ class WatchedList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (BuildContext context) => getIt<togelMovieCubit>(),
+      create: (BuildContext context) => getIt<ToggleMovieCubit>(),
       child: const Padding(
         padding: EdgeInsets.all(16.0),
         child: SafeArea(
