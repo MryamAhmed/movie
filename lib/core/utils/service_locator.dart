@@ -39,11 +39,14 @@ void setupServiceLocator() {
         ),
       );
 
-  getIt<Dio>().interceptors.add(InterceptorsWrapper(
-        onRequest: (options, handler) => options.queryParameters
-            .addAll({'api_key': '79c05e937131679e01142ef81e800843'}),
-        //.addAll({'api_key': '79c05e937131679e01142ef81e800843'}),
-      ));
+  getIt<Dio>()
+      .interceptors
+      .add(InterceptorsWrapper(onRequest: (options, handler) {
+    options.queryParameters.addAll({
+      'api_key': '79c05e937131679e01142ef81e800843',
+    });
+    return handler.next(options);
+  }));
 
   getIt.registerSingleton<ApiServices>(ApiServices(
     getIt(),
