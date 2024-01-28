@@ -1,14 +1,16 @@
 import 'package:bloc/bloc.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hive_flutter/adapters.dart';
-import 'package:movies/features/home/data/models/movie_details_model.dart';
+
+import '../../../../core/utils/app_strings.dart';
+import '../../../home/data/models/movie_details_model.dart';
 
 part 'togel_movie_state.dart';
 
-class togelMovieCubit extends Cubit<TogelMovieState> {
-  togelMovieCubit() : super(AddMovieInitial());
+class ToggleMovieCubit extends Cubit<TogelMovieState> {
+  ToggleMovieCubit() : super(AddMovieInitial());
 
-  var movieBox = Hive.box('watched_list');
+  var movieBox = Hive.box(AppStrings.hiveWatchedListBox);
 
   List<MovieDetailsModel> movies = [];
 
