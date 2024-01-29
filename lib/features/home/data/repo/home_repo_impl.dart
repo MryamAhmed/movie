@@ -1,9 +1,9 @@
 import 'package:dartz/dartz.dart';
-import 'package:movies/core/utils/api_service.dart';
-import 'package:movies/features/home/data/repo/home_repo.dart';
-import 'package:movies/features/splash/errors/failure.dart';
 
+import '../../../../core/services/api_service.dart';
+import '../../../splash/errors/failure.dart';
 import '../models/movie_details_model.dart';
+import 'home_repo.dart';
 
 class HomeRepoImplementation implements HomeRepo {
   final ApiServices apiService;
