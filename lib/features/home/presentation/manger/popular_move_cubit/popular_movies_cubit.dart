@@ -4,9 +4,9 @@ import 'package:meta/meta.dart';
 import 'package:movies/features/home/data/models/movie_details_model.dart';
 import 'package:movies/features/home/data/repo/home_repo.dart';
 
-import '../../../../core/errors/failure.dart';
+import '../../../../../core/errors/failure.dart';
 
-part 'get_popular_movies_state.dart';
+part 'popular_movies_state.dart';
 
 class GetPopularMoviesCubit extends Cubit<GetPopularMoviesState> {
   GetPopularMoviesCubit(this.homeRepo) : super(GetPopularMoviesInitial());

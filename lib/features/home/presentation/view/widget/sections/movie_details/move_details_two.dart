@@ -1,5 +1,6 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:movies/core/extensions/spacing.dart';
 import 'package:movies/features/home/data/models/movie_details_model.dart';
 
 class MovieDetailsTwo extends StatelessWidget {
@@ -15,9 +16,7 @@ class MovieDetailsTwo extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(movieDetails.title!),
-          const SizedBox(
-            height: 10,
-          ),
+          10.vertical,
           Row(
             children: [
               Stack(
@@ -71,9 +70,7 @@ class MovieDetailsTwo extends StatelessWidget {
                       overflow: TextOverflow.ellipsis,
                     ),
                   ),
-                  const SizedBox(
-                    height: 10,
-                  ),
+                  10.vertical,
                   Row(
                     children: [
                       const Icon(

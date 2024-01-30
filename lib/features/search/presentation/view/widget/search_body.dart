@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:movies/core/widgets/custom_error.dart';
+import 'package:movies/core/common/widgets/custom_error.dart';
+import 'package:movies/core/extensions/spacing.dart';
 import 'package:movies/features/search/presentation/manger/search_cubit.dart';
 import 'package:movies/features/search/presentation/view/widget/search_movies.dart';
 
@@ -54,13 +55,9 @@ class SearchBody extends StatelessWidget {
                             SearchMovies(
                               result: state.searchMovies[index],
                             ),
-                            const SizedBox(
-                              height: 10,
-                            ),
+                            10.vertical,
                             const Divider(), //
-                            const SizedBox(
-                              height: 10,
-                            ),
+                            10.vertical,
                           ],
                         );
                       },

@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:movies/features/home/presentation/view/widget/top_rated_movie_item.dart';
 
-import '../../../../../core/widgets/custom_error.dart';
-import '../../manger/get_recommend_movies_cubit.dart';
+import '../../../../../core/common/widgets/custom_error.dart';
+import '../../manger/recommended_move_cubit/recommend_movies_cubit.dart';
 
 class TopRatesMovieListView extends StatelessWidget {
   const TopRatesMovieListView({Key? key}) : super(key: key);
@@ -14,7 +14,6 @@ class TopRatesMovieListView extends StatelessWidget {
       color: const Color(0xff353535),
       child: SizedBox(
         width: double.infinity,
-        //height: MediaQuery.of(context).size.height*.3,
         height: 230,
         child: Padding(
           padding: const EdgeInsets.only(top: 10, bottom: 10, left: 16),

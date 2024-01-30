@@ -3,9 +3,9 @@ import 'package:get_it/get_it.dart';
 
 import '../../features/home/data/repo/home_repo.dart';
 import '../../features/home/data/repo/home_repo_impl.dart';
-import '../../features/home/presentation/manger/get_popular_movies_cubit.dart';
-import '../../features/home/presentation/manger/get_recommend_movies_cubit.dart';
-import '../../features/home/presentation/manger/get_up_coming_movie_cubit.dart';
+import '../../features/home/presentation/manger/popular_move_cubit/popular_movies_cubit.dart';
+import '../../features/home/presentation/manger/recommended_move_cubit/recommend_movies_cubit.dart';
+import '../../features/home/presentation/manger/up_coming_move_cubit/up_coming_movie_cubit.dart';
 import '../../features/search/data/repo/search_repo.dart';
 import '../../features/search/data/repo/search_repo_impl.dart';
 import '../../features/search/presentation/manger/search_cubit.dart';

@@ -3,7 +3,8 @@ import 'package:flutter/material.dart';
 import '../../../../root/widget/bottom_nav.dart';
 
 class SplashScreenBody extends StatefulWidget {
-  const SplashScreenBody({Key? key}) : super(key: key);
+  const SplashScreenBody({super.key});
+
   @override
   State<SplashScreenBody> createState() => _SplashScreenBodyState();
 }
@@ -16,8 +17,9 @@ class _SplashScreenBodyState extends State<SplashScreenBody>
   @override
   void initState() {
     super.initState();
-    initSlidingAnimation();
-    navigateToHome();
+
+    _initSlidingAnimation();
+    _navigateToHome();
   }
 
   @override
@@ -33,20 +35,22 @@ class _SplashScreenBodyState extends State<SplashScreenBody>
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           SlideTransition(
-              position: slidingAnimation,
-              child: const Text(
-                'Watch it',
-                style: TextStyle(
-                  fontSize: 30,
-                ),
-              ))
+            position: slidingAnimation,
+            child: const Text(
+              'Watch it',
+              style: TextStyle(
+                fontSize: 30,
+              ),
+            ),
+          ),
         ],
       ),
     );
   }
 
-  void navigateToHome() {
+  void _navigateToHome() {
     Future.delayed(const Duration(seconds: 2), () {
+      // todo : use GoRouter
       //GoRouter.of(context).push(AppRouter.homeViewPath);
       Navigator.push(
         context,
@@ -55,7 +59,7 @@ class _SplashScreenBodyState extends State<SplashScreenBody>
     });
   }
 
-  void initSlidingAnimation() {
+  void _initSlidingAnimation() {
     animationController =
         AnimationController(vsync: this, duration: const Duration(seconds: 1));
 

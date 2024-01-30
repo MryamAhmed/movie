@@ -17,7 +17,6 @@ class PopularMoviesWidget extends StatelessWidget {
         children: [
           Container(
             width: double.infinity,
-            //width: 650,
             height: 240,
             color: Colors.white,
             child: CachedNetworkImage(

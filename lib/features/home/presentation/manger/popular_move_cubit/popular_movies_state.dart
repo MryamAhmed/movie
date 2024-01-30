@@ -1,4 +1,4 @@
-part of 'get_popular_movies_cubit.dart';
+part of 'popular_movies_cubit.dart';
 
 @immutable
 abstract class GetPopularMoviesState {}
@@ -16,5 +16,3 @@ class GetPopularMoviesSuccess extends GetPopularMoviesState {
   final List<MovieDetailsModel> popularMovies;
   GetPopularMoviesSuccess(this.popularMovies);
 }
-
-

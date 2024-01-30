@@ -1,4 +1,4 @@
-part of 'get_recommend_movies_cubit.dart';
+part of 'recommend_movies_cubit.dart';
 
 abstract class GetRecommendMoviesState {}
 

@@ -1,4 +1,4 @@
-import '../../data/models/movie_details_model.dart';
+import '../../../data/models/movie_details_model.dart';
 
 abstract class GetUpComingMovieState {}
 
