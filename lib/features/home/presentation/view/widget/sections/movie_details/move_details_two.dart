@@ -1,21 +1,23 @@
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:movies/features/home/data/models/movie_details_model.dart';
 
 class MovieDetailsTwo extends StatelessWidget {
-  const MovieDetailsTwo({Key? key,required this.movieDetails}) : super(key: key);
-final MovieDetailsModel movieDetails;
+  const MovieDetailsTwo({Key? key, required this.movieDetails})
+      : super(key: key);
+  final MovieDetailsModel movieDetails;
+
   @override
   Widget build(BuildContext context) {
-    return  Padding(
-      padding: EdgeInsets.all(16.0),
-      child:
-      Column(
+    return Padding(
+      padding: const EdgeInsets.all(16.0),
+      child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(movieDetails.title!),
-          const SizedBox(height: 10,),
+          const SizedBox(
+            height: 10,
+          ),
           Row(
             children: [
               Stack(
@@ -29,12 +31,12 @@ final MovieDetailsModel movieDetails;
                         child: AspectRatio(
                             aspectRatio: .8 / 1.2,
                             child: CachedNetworkImage(
-                              imageUrl: 'https://image.tmdb.org/t/p/w500${movieDetails.posterPath!}',
+                              imageUrl:
+                                  'https://image.tmdb.org/t/p/w500${movieDetails.posterPath!}',
                               fit: BoxFit.fill,
-                              errorWidget: (context,url,error)=>const Icon(Icons.alarm),
-                            )
-
-                        ),
+                              errorWidget: (context, url, error) =>
+                                  const Icon(Icons.alarm),
+                            )),
                       ),
                     ),
                   ),
@@ -50,34 +52,39 @@ final MovieDetailsModel movieDetails;
                             borderRadius: BorderRadius.circular(8),
                             image: const DecorationImage(
                               fit: BoxFit.cover,
-                              image: AssetImage("assets/icons/bookmark_add.png"),
+                              image:
+                                  AssetImage("assets/icons/bookmark_add.png"),
                             ),
                           ),
                         ),
                       ))
                 ],
               ),
-               Column(
-                 crossAxisAlignment: CrossAxisAlignment.start,
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   SizedBox(
                     width: 240,
-                    child: Text(movieDetails.overview!,
+                    child: Text(
+                      movieDetails.overview!,
                       maxLines: 4,
                       overflow: TextOverflow.ellipsis,
                     ),
                   ),
-                  const SizedBox(height: 10,),
+                  const SizedBox(
+                    height: 10,
+                  ),
                   Row(
                     children: [
-                      const Icon(Icons.star,color: Color(0xffF8AE1C),),
+                      const Icon(
+                        Icons.star,
+                        color: Color(0xffF8AE1C),
+                      ),
                       Text(movieDetails.voteAverage!.toString()),
                     ],
                   ),
-
                 ],
               ),
-
             ],
           ),
         ],

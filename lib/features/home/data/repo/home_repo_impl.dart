@@ -15,13 +15,13 @@ class HomeRepoImplementation implements HomeRepo {
     try {
       var data = await apiService.get(endPoint: '/3/movie/popular');
 
-      List<MovieDetailsModel> moveiList = [];
+      List<MovieDetailsModel> movesList = [];
 
       for (var item in data['results']) {
-        moveiList.add(MovieDetailsModel.fromJson(item));
+        movesList.add(MovieDetailsModel.fromJson(item));
       }
 
-      return right(moveiList);
+      return right(movesList);
     } on ServerFailure catch (e) {
       return left(e);
     }
@@ -32,15 +32,13 @@ class HomeRepoImplementation implements HomeRepo {
     try {
       var data = await apiService.get(endPoint: '/3/movie/upcoming');
 
-      List<MovieDetailsModel> moveiList = [];
-
-      print('from UpComingMovies repo $data'); //printed
+      List<MovieDetailsModel> movesList = [];
 
       for (var item in data['results']) {
-        moveiList.add(MovieDetailsModel.fromJson(item));
+        movesList.add(MovieDetailsModel.fromJson(item));
       }
 
-      return right(moveiList);
+      return right(movesList);
     } on ServerFailure catch (e) {
       return left(e);
     }
@@ -52,73 +50,47 @@ class HomeRepoImplementation implements HomeRepo {
     try {
       var data = await apiService.get(endPoint: '/3/movie/top_rated');
 
-      print(data); //printed
-
-      List<MovieDetailsModel> moveiList = [];
-
-      print('from Recommended repo $data'); //printed
+      List<MovieDetailsModel> movesList = [];
 
       for (var item in data['results']) {
-        moveiList.add(MovieDetailsModel.fromJson(item));
+        movesList.add(MovieDetailsModel.fromJson(item));
       }
-      print('hi from Recommended after for');
 
-      print('good $moveiList'); //did not print => printed after .data
-
-      return right(moveiList);
+      return right(movesList);
     } on ServerFailure catch (e) {
-      print(' error ${e.errMessage}');
       return left(e);
     }
   }
 
   @override
   Future<Either<Failure, MovieDetailsModel>> getMovieDetails(
-      num movie_id) async {
+      num movieId) async {
     try {
-      var data = await apiService.get(endPoint: '/3/movie/${movie_id}');
+      var data = await apiService.get(endPoint: '/3/movie/$movieId');
 
-      print('detaails${data}'); //printed
+      MovieDetailsModel movesList; // why not MovieDetailsModel
 
-      MovieDetailsModel moveiList; // why not MovieDetailsModel
+      movesList = (MovieDetailsModel.fromJson(data));
 
-      print('from details repo $data'); //printed
-
-      moveiList = (MovieDetailsModel.fromJson(data));
-
-      print('hi from details after for');
-      print('det $moveiList'); //did not print => printed after .data
-
-      return right(moveiList);
+      return right(movesList);
     } on ServerFailure catch (e) {
-      print(' error ${e.errMessage}');
       return left(e);
     }
   }
 
   @override
   Future<Either<Failure, List<MovieDetailsModel>>> getSimilarMovies(
-      num movie_id) async {
+      num movieId) async {
     try {
-      var data = await apiService.get(endPoint: '/3/movie/${movie_id}/similar');
+      var data = await apiService.get(endPoint: '/3/movie/$movieId/similar');
 
-      print(data); //printed
-      // print(responseBody);
-
-      List<MovieDetailsModel> moveiList = [];
-
-      print('from similar repo $data'); //printed
+      List<MovieDetailsModel> movesList = [];
 
       for (var item in data['results']) {
-        moveiList.add(MovieDetailsModel.fromJson(item));
+        movesList.add(MovieDetailsModel.fromJson(item));
       }
-      print('hi from similar after for');
-
-      print('good $moveiList'); //did not print => printed after .data
-
-      return right(moveiList);
+      return right(movesList);
     } on ServerFailure catch (e) {
-      print(' error ${e.errMessage}');
       return left(e);
     }
   }

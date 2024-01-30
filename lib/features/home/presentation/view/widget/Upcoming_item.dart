@@ -4,24 +4,24 @@ import 'package:movies/features/home/data/models/movie_details_model.dart';
 import 'package:movies/features/watched_list/presentation/manager/togel_movie_cubit.dart';
 
 import '../../../../../core/utils/service_locator.dart';
-import 'sections/movie_details/movie_details.dart';
+import 'sections/movie_details/move_details.dart';
 
 class UpcomingItem extends StatelessWidget {
-  const UpcomingItem({Key? key, required this.movei}) : super(key: key);
+  const UpcomingItem({Key? key, required this.move}) : super(key: key);
 
-  final MovieDetailsModel movei;
+  final MovieDetailsModel move;
 
   @override
   Widget build(BuildContext context) {
     var isWishListed =
-        getIt<ToggleMovieCubit>().movieBox.keys.contains(movei.id);
+        getIt<ToggleMovieCubit>().movieBox.keys.contains(move.id);
     return GestureDetector(
       onTap: () {
         Navigator.push(
           context,
           MaterialPageRoute(
               builder: (context) => MovieDetails(
-                    movieId: movei.id!,
+                    movieId: move.id!,
                   )),
         );
       },
@@ -37,7 +37,7 @@ class UpcomingItem extends StatelessWidget {
                     aspectRatio: 1 / 1.2,
                     child: CachedNetworkImage(
                       imageUrl:
-                          'https://image.tmdb.org/t/p/w500${movei.posterPath!}',
+                          'https://image.tmdb.org/t/p/w500${move.posterPath!}',
                       fit: BoxFit.fill,
                       errorWidget: (context, url, error) =>
                           const Icon(Icons.alarm),
@@ -50,7 +50,7 @@ class UpcomingItem extends StatelessWidget {
               left: 0,
               child: InkWell(
                 onTap: () {
-                  getIt<ToggleMovieCubit>().toggleWatchList(movei.id!, movei);
+                  getIt<ToggleMovieCubit>().toggleWatchList(move.id!, move);
                 },
                 child: Container(
                   width: 32,

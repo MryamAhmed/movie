@@ -34,7 +34,7 @@ class TopRatesMovieListView extends StatelessWidget {
                       itemCount: state.recommendMovies.length,
                       itemBuilder: (BuildContext context, int index) {
                         return TopRatedItem(
-                          moveiModel: state.recommendMovies[index],
+                          moveModel: state.recommendMovies[index],
                         );
                       }),
                 );

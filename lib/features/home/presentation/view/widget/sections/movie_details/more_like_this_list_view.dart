@@ -33,12 +33,11 @@ class MoreLieThisListView extends StatelessWidget {
                       itemCount: state.similarMovies.length,
                       itemBuilder: (BuildContext context, int index) {
                         return TopRatedItem(
-                          moveiModel: state.similarMovies[index],
+                          moveModel: state.similarMovies[index],
                         );
                       }),
                 );
               } else if (state is MoreLikeThisFailure) {
-                print(state.errorMessage);
                 return CustomError(
                   errorMessage: state.errorMessage,
                 );

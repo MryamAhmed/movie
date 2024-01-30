@@ -8,6 +8,6 @@ class PopularMovieSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return PopularMoviesSlider();
+    return const PopularMoviesSlider();
   }
 }

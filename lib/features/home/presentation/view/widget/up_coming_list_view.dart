@@ -34,7 +34,7 @@ class UpComingListView extends StatelessWidget {
                       itemCount: state.getUpComingMovies.length,
                       itemBuilder: (BuildContext context, int index) {
                         return UpcomingItem(
-                          movei: state.getUpComingMovies[index],
+                          move: state.getUpComingMovies[index],
                         );
                       }),
                 );

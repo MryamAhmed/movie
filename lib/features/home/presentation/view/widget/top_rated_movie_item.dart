@@ -4,24 +4,24 @@ import 'package:movies/features/home/data/models/movie_details_model.dart';
 
 import '../../../../../core/utils/service_locator.dart';
 import '../../../../watched_list/presentation/manager/togel_movie_cubit.dart';
-import 'sections/movie_details/movie_details.dart';
+import 'sections/movie_details/move_details.dart';
 
 class TopRatedItem extends StatelessWidget {
-  const TopRatedItem({Key? key, required this.moveiModel}) : super(key: key);
+  const TopRatedItem({Key? key, required this.moveModel}) : super(key: key);
 
-  final MovieDetailsModel moveiModel;
+  final MovieDetailsModel moveModel;
 
   @override
   Widget build(BuildContext context) {
     final isWishListed =
-        getIt<ToggleMovieCubit>().movieBox.keys.contains(moveiModel.id);
+        getIt<ToggleMovieCubit>().movieBox.keys.contains(moveModel.id);
     return GestureDetector(
       onTap: () {
         Navigator.push(
           context,
           MaterialPageRoute(
               builder: (context) => MovieDetails(
-                    movieId: moveiModel.id!,
+                    movieId: moveModel.id!,
                   )),
         );
       },
@@ -40,7 +40,7 @@ class TopRatedItem extends StatelessWidget {
                         aspectRatio: 1 / 1.2,
                         child: CachedNetworkImage(
                           imageUrl:
-                              'https://image.tmdb.org/t/p/w500${moveiModel.posterPath!}',
+                              'https://image.tmdb.org/t/p/w500${moveModel.posterPath!}',
                           fit: BoxFit.fill,
                           errorWidget: (context, url, error) =>
                               const Icon(Icons.alarm),
@@ -54,7 +54,7 @@ class TopRatedItem extends StatelessWidget {
                   child: InkWell(
                     onTap: () {
                       getIt<ToggleMovieCubit>()
-                          .toggleWatchList(moveiModel.id!, moveiModel);
+                          .toggleWatchList(moveModel.id!, moveModel);
                     },
                     child: Container(
                       width: 32,
@@ -75,7 +75,7 @@ class TopRatedItem extends StatelessWidget {
           SizedBox(
             width: 110,
             child: Text(
-              moveiModel.title!,
+              moveModel.title!,
               overflow: TextOverflow.ellipsis,
               maxLines: 1,
               style: const TextStyle(color: Colors.white, fontSize: 10),
@@ -84,7 +84,7 @@ class TopRatedItem extends StatelessWidget {
           Text(
             overflow: TextOverflow.ellipsis,
             maxLines: 1,
-            moveiModel.voteAverage!.toString(),
+            moveModel.voteAverage!.toString(),
             style: const TextStyle(color: Colors.white, fontSize: 10),
           ),
         ],

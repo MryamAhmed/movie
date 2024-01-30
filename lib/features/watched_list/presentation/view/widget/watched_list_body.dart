@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:movies/core/utils/service_locator.dart';
-import 'package:movies/features/home/presentation/view/widget/sections/movie_details/movie_details.dart';
+import 'package:movies/features/home/presentation/view/widget/sections/movie_details/move_details.dart';
 
 import '../../manager/togel_movie_cubit.dart';
 import 'watched_movie_item.dart';

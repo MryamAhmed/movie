@@ -6,8 +6,8 @@ import '/core/widgets/custom_error.dart';
 import '/features/home/presentation/manger/more_like_this_cubit.dart';
 import '/features/home/presentation/manger/movie_details_cubit.dart';
 import '/features/home/presentation/view/widget/sections/movie_details/more_like_this_list_view.dart';
-import '/features/home/presentation/view/widget/sections/movie_details/movei_details_one.dart';
-import '/features/home/presentation/view/widget/sections/movie_details/movie_details_two.dart';
+import '/features/home/presentation/view/widget/sections/movie_details/move_details_one.dart';
+import '/features/home/presentation/view/widget/sections/movie_details/move_details_two.dart';
 
 class MovieDetails extends StatelessWidget {
   const MovieDetails({Key? key, required this.movieId}) : super(key: key);
