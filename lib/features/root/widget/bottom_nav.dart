@@ -9,42 +9,58 @@ class NavBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-        create: (BuildContext context) => MovieCubit(),
-        child: BlocConsumer<MovieCubit, MovieState>(
-            listener: (context, state) {},
-            builder: (context, state) {
-              var cubit = MovieCubit.get(context);
-              return Scaffold(
-                body: cubit.screen[cubit.currentIndex],
-                bottomNavigationBar: BottomNavigationBar(
-                    type: BottomNavigationBarType.fixed,
-                    showUnselectedLabels: true,
-                    selectedItemColor: Colors.yellow,
-                    unselectedFontSize: 12,
-                    selectedFontSize: 12,
-                    items: const <BottomNavigationBarItem>[
-                      BottomNavigationBarItem(
-                        icon: Icon(Icons.home, color: Colors.white),
-                        label: 'Home',
-                      ),
-                      BottomNavigationBarItem(
-                        icon: Icon(Icons.search, color: Colors.white),
-                        label: 'Search',
-                      ),
-                      BottomNavigationBarItem(
-                        icon: Icon(
-                          Icons.featured_play_list_outlined,
-                          color: Colors.white,
-                        ),
-                        label: 'WatchList',
-                      ),
-                    ],
-                    currentIndex: cubit.currentIndex,
-                    onTap: (index) {
-                      print('index = $index');
-                      cubit.changeIndex(index);
-                    }),
-              );
-            }));
+      create: (BuildContext context) => MovieCubit(),
+      child: BlocConsumer<MovieCubit, MovieState>(
+        listener: (context, state) {},
+        builder: (context, state) {
+          var cubit = MovieCubit.get(context);
+          return Scaffold(
+            body: cubit.screen[cubit.currentIndex],
+            bottomNavigationBar: BottomNavigationBar(
+              type: BottomNavigationBarType.fixed,
+              showUnselectedLabels: true,
+              selectedItemColor: Colors.yellow,
+              unselectedFontSize: 12,
+              selectedFontSize: 12,
+              items: bottomNavBarItems(),
+              currentIndex: cubit.currentIndex,
+              onTap: (index) {
+                cubit.changeIndex(index);
+              },
+            ),
+          );
+        },
+      ),
+    );
+  }
+
+  List<BottomNavigationBarItem> bottomNavBarItems() {
+    return <BottomNavigationBarItem>[
+      _buildBottomNavigationBarItem(
+        label: 'Home',
+        icon: Icons.home,
+      ),
+      _buildBottomNavigationBarItem(
+        label: 'Search',
+        icon: Icons.search,
+      ),
+      _buildBottomNavigationBarItem(
+        label: 'WatchList',
+        icon: Icons.featured_play_list_outlined,
+      ),
+    ];
+  }
+
+  BottomNavigationBarItem _buildBottomNavigationBarItem({
+    required String label,
+    required IconData icon,
+  }) {
+    return BottomNavigationBarItem(
+      icon: Icon(
+        icon,
+        color: Colors.white,
+      ),
+      label: label,
+    );
   }
 }

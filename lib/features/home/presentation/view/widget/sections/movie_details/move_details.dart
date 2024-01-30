@@ -2,12 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '/core/utils/service_locator.dart';
-import '/core/widgets/custom_error.dart';
 import '/features/home/presentation/manger/more_like_this_cubit.dart';
 import '/features/home/presentation/manger/movie_details_cubit.dart';
 import '/features/home/presentation/view/widget/sections/movie_details/more_like_this_list_view.dart';
 import '/features/home/presentation/view/widget/sections/movie_details/move_details_one.dart';
 import '/features/home/presentation/view/widget/sections/movie_details/move_details_two.dart';
+import '../../../../../../../core/common/widgets/custom_error.dart';
 
 class MovieDetails extends StatelessWidget {
   const MovieDetails({Key? key, required this.movieId}) : super(key: key);

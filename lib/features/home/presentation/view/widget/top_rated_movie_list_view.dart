@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:movies/features/home/presentation/view/widget/top_rated_movie_item.dart';
 
-import '../../../../../core/widgets/custom_error.dart';
+import '../../../../../core/common/widgets/custom_error.dart';
 import '../../manger/get_recommend_movies_cubit.dart';
 
 class TopRatesMovieListView extends StatelessWidget {
