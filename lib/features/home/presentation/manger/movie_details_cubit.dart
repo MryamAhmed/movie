@@ -1,8 +1,8 @@
 import 'package:dartz/dartz.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:movies/core/errors/failure.dart';
 import 'package:movies/features/home/data/models/movie_details_model.dart';
 import 'package:movies/features/home/data/repo/home_repo.dart';
-import 'package:movies/features/splash/errors/failure.dart';
 
 part 'movie_details_state.dart';
 

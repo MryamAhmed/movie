@@ -4,7 +4,7 @@ import 'package:meta/meta.dart';
 import 'package:movies/features/home/data/models/movie_details_model.dart';
 import 'package:movies/features/home/data/repo/home_repo.dart';
 
-import '../../../splash/errors/failure.dart';
+import '../../../../core/errors/failure.dart';
 
 part 'get_popular_movies_state.dart';
 

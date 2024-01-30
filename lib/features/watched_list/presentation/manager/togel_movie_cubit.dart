@@ -18,7 +18,7 @@ class ToggleMovieCubit extends Cubit<TogelMovieState> {
     if (movieBox.keys.contains(movieId)) {
       //remove it
       removeMovie(movieId.toInt(), movieDetails);
-      emit(MovieDidntWatched());
+      emit(MovieDidNotWatched());
     } else {
       //dd it
       addMovie(movieDetails, movieId.toInt());

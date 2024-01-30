@@ -5,7 +5,6 @@ abstract class SearchMovieState {}
 
 class SearchMovieInitial extends SearchMovieState {}
 
-
 class SearchMovieLoading extends SearchMovieState {}
 
 class SearchMovieFailure extends SearchMovieState {
@@ -14,8 +13,6 @@ class SearchMovieFailure extends SearchMovieState {
 }
 
 class SearchMovieSuccess extends SearchMovieState {
-  final List<MovieDetailsModel> serchMovies;
-  SearchMovieSuccess(this.serchMovies);
+  final List<MovieDetailsModel> searchMovies;
+  SearchMovieSuccess(this.searchMovies);
 }
-
-

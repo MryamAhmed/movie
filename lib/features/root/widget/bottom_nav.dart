@@ -41,7 +41,6 @@ class NavBar extends StatelessWidget {
                     ],
                     currentIndex: cubit.currentIndex,
                     onTap: (index) {
-                      print('index = $index');
                       cubit.changeIndex(index);
                     }),
               );

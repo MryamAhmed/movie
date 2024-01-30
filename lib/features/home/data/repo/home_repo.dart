@@ -1,5 +1,5 @@
 import 'package:dartz/dartz.dart';
-import 'package:movies/features/splash/errors/failure.dart';
+import 'package:movies/core/errors/failure.dart';
 
 import '../models/movie_details_model.dart';
 

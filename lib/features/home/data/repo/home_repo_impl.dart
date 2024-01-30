@@ -1,7 +1,7 @@
 import 'package:dartz/dartz.dart';
 
+import '../../../../core/errors/failure.dart';
 import '../../../../core/services/api_service.dart';
-import '../../../splash/errors/failure.dart';
 import '../models/movie_details_model.dart';
 import 'home_repo.dart';
 

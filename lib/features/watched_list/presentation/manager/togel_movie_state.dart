@@ -15,7 +15,7 @@ class AddMovieFauilar extends TogelMovieState {
 
 class MovieWatched extends TogelMovieState {}
 
-class MovieDidntWatched extends TogelMovieState {}
+class MovieDidNotWatched extends TogelMovieState {}
 
 class DeleteMovieLoading extends TogelMovieState {}
 

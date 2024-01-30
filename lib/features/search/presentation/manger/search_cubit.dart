@@ -1,9 +1,10 @@
 import 'package:dartz/dartz.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:movies/features/home/data/models/movie_details_model.dart';
-import 'package:movies/features/search/data/repo/search_repo.dart';
-import 'package:movies/features/splash/errors/failure.dart';
+
+import '../../../../core/errors/failure.dart';
+import '../../../home/data/models/movie_details_model.dart';
+import '../../data/repo/search_repo.dart';
 
 part 'search_state.dart';
 

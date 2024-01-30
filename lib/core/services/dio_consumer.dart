@@ -1,7 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 
-import '../../features/splash/errors/failure.dart';
+import '../errors/failure.dart';
 import 'api_service.dart';
 
 class DioConsumer implements ApiServices {
