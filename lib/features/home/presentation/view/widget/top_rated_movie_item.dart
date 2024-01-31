@@ -2,6 +2,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:movies/features/home/data/models/movie_details_model.dart';
 
+import '../../../../../core/utils/app_styles.dart';
 import '../../../../../core/utils/service_locator.dart';
 import '../../../../watched_list/presentation/manager/togel_movie_cubit.dart';
 import 'sections/movie_details/move_details.dart';
@@ -78,7 +79,7 @@ class TopRatedItem extends StatelessWidget {
               moveModel.title!,
               overflow: TextOverflow.ellipsis,
               maxLines: 1,
-              style: const TextStyle(color: Colors.white, fontSize: 10),
+              style: AppStyles.font10,
             ),
           ),
           Text(

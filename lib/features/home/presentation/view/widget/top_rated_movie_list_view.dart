@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:movies/features/home/presentation/view/widget/top_rated_movie_item.dart';
 
 import '../../../../../core/common/widgets/custom_error.dart';
+import '../../../../../core/utils/app_strings.dart';
 import '../../manger/recommended_move_cubit/recommend_movies_cubit.dart';
 
 class TopRatesMovieListView extends StatelessWidget {
@@ -19,7 +20,7 @@ class TopRatesMovieListView extends StatelessWidget {
           padding: const EdgeInsets.only(top: 10, bottom: 10, left: 16),
           child:
               Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-            const Text('Recommended'),
+            const Text(AppStrings.recommended),
             const SizedBox(
               height: 5,
             ),

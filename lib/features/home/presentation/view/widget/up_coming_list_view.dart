@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../../core/common/widgets/custom_error.dart';
+import '../../../../../core/utils/app_strings.dart';
 import '../../manger/up_coming_move_cubit/up_coming_movie_cubit.dart';
 import '../../manger/up_coming_move_cubit/up_coming_movie_state.dart';
 import 'Upcoming_item.dart';
@@ -20,7 +21,7 @@ class UpComingListView extends StatelessWidget {
           padding: const EdgeInsets.only(top: 10, bottom: 10, left: 16),
           child:
               Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-            const Text('New Releases'),
+            const Text(AppStrings.newReleases),
             const SizedBox(
               height: 5,
             ),

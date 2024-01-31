@@ -13,7 +13,6 @@ class MoreLieThisListView extends StatelessWidget {
       color: const Color(0xff353535),
       child: SizedBox(
         width: double.infinity,
-        //height: MediaQuery.of(context).size.height*.3,
         height: 230,
         child: Padding(
           padding: const EdgeInsets.only(top: 10, bottom: 10, left: 16),

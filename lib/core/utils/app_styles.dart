@@ -1,4 +1,4 @@
-import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 
 abstract class AppStyles {
   // text styles
@@ -7,4 +7,10 @@ abstract class AppStyles {
     fontSize: 24,
     fontWeight: FontWeight.w700,
   );
+
+  static const TextStyle font20 =
+      TextStyle(fontSize: 20, fontWeight: FontWeight.w700, color: Colors.white);
+
+  static const TextStyle font10 =
+      TextStyle(fontSize: 10, fontWeight: FontWeight.w700, color: Colors.white);
 }
