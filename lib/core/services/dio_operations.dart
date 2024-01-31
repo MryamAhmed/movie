@@ -1,10 +1,11 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 
 Dio dioInit() {
   final dio = Dio(
     BaseOptions(
-      baseUrl: 'https://api.themoviedb.org',
+      baseUrl: '${dotenv.env['baseUrl']}',
       connectTimeout: const Duration(seconds: 10),
       headers: {
         'Content-Type': 'application/json',
@@ -14,7 +15,7 @@ Dio dioInit() {
 
   dio.interceptors.add(InterceptorsWrapper(onRequest: (options, handler) {
     options.queryParameters.addAll({
-      'api_key': '79c05e937131679e01142ef81e800843',
+      'api_key': '${dotenv.env['api_key']}',
     });
     return handler.next(options);
   }));

@@ -1,5 +1,4 @@
 import 'package:dio/dio.dart';
-import 'package:flutter/material.dart';
 
 import '../errors/failure.dart';
 import 'api_service.dart';
@@ -16,14 +15,11 @@ class DioConsumer implements ApiServices {
   }) async {
     try {
       var response = await _dio.get(endPoint, queryParameters: queryPrams);
-
       return response.data;
     } catch (e) {
       if (e is DioException) {
-        debugPrint('wow $e');
         throw (ServerFailure.fromDioError(e));
       } else {
-        debugPrint('wow $e');
         throw (ServerFailure(e.toString()));
       }
     }

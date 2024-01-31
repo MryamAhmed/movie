@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 
 import 'core/utils/app_strings.dart';
@@ -9,7 +10,10 @@ import 'features/home/data/models/movie_details_model.dart';
 import 'my_app.dart';
 
 void main() async {
+  await dotenv.load(fileName: ".env");
+
   await _appSetup();
+
   runApp(const MyApp());
 }
 

@@ -20,7 +20,6 @@ class HomeRepoImplementation implements HomeRepo {
       for (var item in data['results']) {
         movesList.add(MovieDetailsModel.fromJson(item));
       }
-
       return right(movesList);
     } on ServerFailure catch (e) {
       return left(e);
