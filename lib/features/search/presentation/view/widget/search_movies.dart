@@ -22,21 +22,26 @@ class SearchMovies extends StatelessWidget {
         const SizedBox(
           width: 14,
         ),
-        Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            SizedBox(
-              width: 180,
-              child: Text(
-                result.title!,
-                style: const TextStyle(color: Colors.white),
-                maxLines: 1,
-                overflow: TextOverflow.ellipsis,
+        Expanded(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              SingleChildScrollView(
+                child: ConstrainedBox(
+                  constraints: BoxConstraints(
+                      maxWidth: MediaQuery.of(context).size.width - 200),
+                  child: Text(
+                    result.title!,
+                    style: const TextStyle(color: Colors.white),
+                    maxLines: 1,
+                    overflow: TextOverflow.ellipsis,
+                  ),
+                ),
               ),
-            ),
-            Text(result.releaseDate!,
-                style: const TextStyle(color: Colors.white)),
-          ],
+              Text(result.releaseDate!,
+                  style: const TextStyle(color: Colors.white)),
+            ],
+          ),
         )
       ],
     );
