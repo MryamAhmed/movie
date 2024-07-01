@@ -32,8 +32,10 @@ class PopularMovieSection extends StatelessWidget {
               ),
             );
           } else if (state is GetPopularMoviesFailure) {
-            return CustomError(
-              errorMessage: state.errorMessage,
+            return Center(
+              child: CustomError(
+                errorMessage: state.errorMessage,
+              ),
             );
           } else {
             return const Center(child: CircularProgressIndicator());

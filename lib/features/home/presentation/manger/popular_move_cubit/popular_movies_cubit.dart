@@ -4,8 +4,6 @@ import 'package:meta/meta.dart';
 import 'package:movies/features/home/data/models/movie_details_model.dart';
 import 'package:movies/features/home/data/repo/home_repo.dart';
 
-import '../../../../../core/errors/failure.dart';
-
 part 'popular_movies_state.dart';
 
 class GetPopularMoviesCubit extends Cubit<GetPopularMoviesState> {
@@ -17,7 +15,7 @@ class GetPopularMoviesCubit extends Cubit<GetPopularMoviesState> {
 
   final HomeRepo homeRepo;
 
-  Future<Either<Failure, List<MovieDetailsModel>>> getPopularMovies() async {
+  Future<Either<String, List<MovieDetailsModel>>> getPopularMovies() async {
     emit(GetPopularMoviesLoading());
 
     var x = await homeRepo.getPopularMovies();

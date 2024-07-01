@@ -1,6 +1,5 @@
 import 'package:dartz/dartz.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:movies/core/errors/failure.dart';
 import 'package:movies/features/home/data/models/movie_details_model.dart';
 import 'package:movies/features/home/data/repo/home_repo.dart';
 
@@ -15,8 +14,7 @@ class MovieDetailsCubit extends Cubit<MovieDetailsState> {
 
   final HomeRepo homeRepo;
 
-  Future<Either<Failure, MovieDetailsModel>> getMovieDetails(
-      num movieId) async {
+  Future<Either<String, MovieDetailsModel>> getMovieDetails(num movieId) async {
     emit(GetMovieDetailsLoading());
 
     var x = await homeRepo.getMovieDetails(movieId);

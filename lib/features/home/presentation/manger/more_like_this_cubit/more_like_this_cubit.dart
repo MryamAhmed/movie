@@ -1,6 +1,5 @@
 import 'package:dartz/dartz.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:movies/core/errors/failure.dart';
 import 'package:movies/features/home/data/models/movie_details_model.dart';
 import 'package:movies/features/home/data/repo/home_repo.dart';
 
@@ -15,7 +14,7 @@ class MoreLikeThisCubit extends Cubit<MoreLikeThisState> {
 
   final HomeRepo homeRepo;
 
-  Future<Either<Failure, List<MovieDetailsModel>>> getMoreLikeThisMovies(
+  Future<Either<String, List<MovieDetailsModel>>> getMoreLikeThisMovies(
       num idMovie) async {
     emit(MoreLikeThisLoading());
 

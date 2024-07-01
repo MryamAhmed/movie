@@ -11,7 +11,7 @@ class HomeRepoImplementation implements HomeRepo {
   HomeRepoImplementation(this.apiService);
 
   @override
-  Future<Either<Failure, List<MovieDetailsModel>>> getPopularMovies() async {
+  Future<Either<String, List<MovieDetailsModel>>> getPopularMovies() async {
     try {
       var data = await apiService.get(endPoint: '/3/movie/popular');
 
@@ -22,12 +22,12 @@ class HomeRepoImplementation implements HomeRepo {
       }
       return right(movesList);
     } on ServerFailure catch (e) {
-      return left(e);
+      return left(e.errMessage);
     }
   }
 
   @override
-  Future<Either<Failure, List<MovieDetailsModel>>> getUpComingMovies() async {
+  Future<Either<String, List<MovieDetailsModel>>> getUpComingMovies() async {
     try {
       var data = await apiService.get(endPoint: '/3/movie/upcoming');
 
@@ -39,13 +39,12 @@ class HomeRepoImplementation implements HomeRepo {
 
       return right(movesList);
     } on ServerFailure catch (e) {
-      return left(e);
+      return left(e.errMessage);
     }
   }
 
   @override
-  Future<Either<Failure, List<MovieDetailsModel>>>
-      getRecommendedMovies() async {
+  Future<Either<String, List<MovieDetailsModel>>> getRecommendedMovies() async {
     try {
       var data = await apiService.get(endPoint: '/3/movie/top_rated');
 
@@ -57,13 +56,12 @@ class HomeRepoImplementation implements HomeRepo {
 
       return right(movesList);
     } on ServerFailure catch (e) {
-      return left(e);
+      return left(e.errMessage);
     }
   }
 
   @override
-  Future<Either<Failure, MovieDetailsModel>> getMovieDetails(
-      num movieId) async {
+  Future<Either<String, MovieDetailsModel>> getMovieDetails(num movieId) async {
     try {
       var data = await apiService.get(endPoint: '/3/movie/$movieId');
 
@@ -73,12 +71,12 @@ class HomeRepoImplementation implements HomeRepo {
 
       return right(movesList);
     } on ServerFailure catch (e) {
-      return left(e);
+      return left(e.errMessage);
     }
   }
 
   @override
-  Future<Either<Failure, List<MovieDetailsModel>>> getSimilarMovies(
+  Future<Either<String, List<MovieDetailsModel>>> getSimilarMovies(
       num movieId) async {
     try {
       var data = await apiService.get(endPoint: '/3/movie/$movieId/similar');
@@ -90,7 +88,7 @@ class HomeRepoImplementation implements HomeRepo {
       }
       return right(movesList);
     } on ServerFailure catch (e) {
-      return left(e);
+      return left(e.errMessage);
     }
   }
 }

@@ -2,7 +2,6 @@ import 'package:bloc/bloc.dart';
 import 'package:dartz/dartz.dart';
 import 'package:movies/features/home/data/models/movie_details_model.dart';
 
-import '../../../../../core/errors/failure.dart';
 import '../../../data/repo/home_repo.dart';
 
 part 'recommend_movies_state.dart';
@@ -12,8 +11,7 @@ class GetRecommendMoviesCubit extends Cubit<GetRecommendMoviesState> {
 
   final HomeRepo homeRepo;
 
-  Future<Either<Failure, List<MovieDetailsModel>>>
-      getRecommendedMovies() async {
+  Future<Either<String, List<MovieDetailsModel>>> getRecommendedMovies() async {
     emit(GetRecommendMoviesLoading());
 
     var x = await homeRepo.getRecommendedMovies();

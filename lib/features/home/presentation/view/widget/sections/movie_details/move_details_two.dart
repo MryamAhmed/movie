@@ -59,28 +59,34 @@ class MovieDetailsTwo extends StatelessWidget {
                       ))
                 ],
               ),
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  SizedBox(
-                    width: 240,
-                    child: Text(
-                      movieDetails.overview!,
-                      maxLines: 4,
-                      overflow: TextOverflow.ellipsis,
-                    ),
-                  ),
-                  10.vertical,
-                  Row(
-                    children: [
-                      const Icon(
-                        Icons.star,
-                        color: Color(0xffF8AE1C),
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    SingleChildScrollView(
+                      scrollDirection: Axis.horizontal,
+                      child: ConstrainedBox(
+                        constraints: BoxConstraints(
+                            maxWidth: MediaQuery.of(context).size.width - 200),
+                        child: Text(
+                          movieDetails.overview!,
+                          maxLines: 4,
+                          overflow: TextOverflow.ellipsis,
+                        ),
                       ),
-                      Text(movieDetails.voteAverage!.toString()),
-                    ],
-                  ),
-                ],
+                    ),
+                    10.vertical,
+                    Row(
+                      children: [
+                        const Icon(
+                          Icons.star,
+                          color: Color(0xffF8AE1C),
+                        ),
+                        Text(movieDetails.voteAverage!.toString()),
+                      ],
+                    ),
+                  ],
+                ),
               ),
             ],
           ),
