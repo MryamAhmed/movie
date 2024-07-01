@@ -17,13 +17,19 @@ class MovieDetails extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiBlocProvider(
       providers: [
-        BlocProvider(
-          create: (BuildContext context) =>
-              getIt<MovieDetailsCubit>()..getMovieDetails(movieId),
+        BlocProvider.value(
+          value: getIt<MovieDetailsCubit>()..getMovieDetails(movieId),
         ),
-        BlocProvider(
-          create: (BuildContext context) =>
-              getIt<MoreLikeThisCubit>()..getMoreLikeThisMovies(movieId),
+        // BlocProvider(
+        //   create: (BuildContext context) =>
+        //       getIt<MovieDetailsCubit>()..getMovieDetails(movieId),
+        // ),
+        // BlocProvider(
+        //   create: (BuildContext context) =>
+        //       getIt<MoreLikeThisCubit>()..getMoreLikeThisMovies(movieId),
+        // ),
+        BlocProvider.value(
+          value: getIt<MoreLikeThisCubit>()..getMoreLikeThisMovies(movieId),
         ),
       ],
       child: BlocBuilder<MovieDetailsCubit, MovieDetailsState>(
