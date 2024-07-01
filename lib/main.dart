@@ -11,16 +11,17 @@ import 'my_app.dart';
 
 void main() async {
   await dotenv.load(fileName: ".env");
-
   await _appSetup();
-
   runApp(const MyApp());
 }
 
 Future<void> _appSetup() async {
   await Hive.initFlutter();
   await Hive.openBox(AppStrings.hiveWatchedListBox);
-  Hive.registerAdapter(MovieDetailsModelAdapter());
+  if (!Hive.isAdapterRegistered(1)) {
+    Hive.registerAdapter(MovieDetailsModelAdapter());
+  }
+  //Hive.registerAdapter(MovieDetailsModelAdapter());
   setupServiceLocator();
   Bloc.observer = MyBlocObserver();
 }

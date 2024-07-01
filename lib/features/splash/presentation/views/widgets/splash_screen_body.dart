@@ -50,12 +50,11 @@ class _SplashScreenBodyState extends State<SplashScreenBody>
 
   void _navigateToHome() {
     Future.delayed(const Duration(seconds: 2), () {
-      // todo : use GoRouter
-      //GoRouter.of(context).push(AppRouter.homeViewPath);
       Navigator.push(
         context,
         MaterialPageRoute(builder: (context) => const NavBar()),
       );
+      //GoRouter.of(context).go(Routes.navBarPath);
     });
   }
 

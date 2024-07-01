@@ -1,11 +1,11 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:movies/features/home/data/models/movie_details_model.dart';
+import 'package:movies/features/home/presentation/view/widget/sections/movie_details/move_details.dart';
 
 import '../../../../../core/utils/app_styles.dart';
 import '../../../../../core/utils/service_locator.dart';
 import '../../../../watched_list/presentation/manager/togel_movie_cubit.dart';
-import 'sections/movie_details/move_details.dart';
 
 class TopRatedItem extends StatelessWidget {
   const TopRatedItem({Key? key, required this.moveModel}) : super(key: key);
@@ -18,6 +18,9 @@ class TopRatedItem extends StatelessWidget {
         getIt<ToggleMovieCubit>().movieBox.keys.contains(moveModel.id);
     return GestureDetector(
       onTap: () {
+        // GoRouter.of(context)
+        //     .go(Routes.bookDetailsViewPath, extra: moveModel.id);
+
         Navigator.push(
           context,
           MaterialPageRoute(
@@ -41,7 +44,8 @@ class TopRatedItem extends StatelessWidget {
                         aspectRatio: 1 / 1.2,
                         child: CachedNetworkImage(
                           imageUrl:
-                              'https://image.tmdb.org/t/p/w500${moveModel.posterPath!}',
+                              'https://image.tmdb.org/t/p/w500${moveModel.posterPath}' ??
+                                  '',
                           fit: BoxFit.fill,
                           errorWidget: (context, url, error) =>
                               const Icon(Icons.alarm),

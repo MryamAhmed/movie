@@ -33,19 +33,21 @@ class MovieDetails extends StatelessWidget {
               appBar: AppBar(
                 title: Text(state.movieDetails.title!),
               ),
-              body: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  MovieDetailsOne(movieDetails: state.movieDetails),
-                  const SizedBox(
-                    height: 2,
-                  ),
-                  MovieDetailsTwo(movieDetails: state.movieDetails),
-                  const SizedBox(
-                    height: 4,
-                  ),
-                  const MoreLieThisListView()
-                ],
+              body: SingleChildScrollView(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    MovieDetailsOne(movieDetails: state.movieDetails),
+                    const SizedBox(
+                      height: 2,
+                    ),
+                    MovieDetailsTwo(movieDetails: state.movieDetails),
+                    const SizedBox(
+                      height: 4,
+                    ),
+                    const MoreLieThisListView()
+                  ],
+                ),
               ),
             );
           } else if (state is GetMovieDetailsFailure) {

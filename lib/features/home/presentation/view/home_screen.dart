@@ -24,6 +24,8 @@ class HomeView extends StatelessWidget {
         BlocProvider(
             create: (BuildContext context) =>
                 getIt<GetPopularMoviesCubit>()..getPopularMovies()),
+        // BlocProvider(
+        //     create: (BuildContext context) => getIt<ToggleMovieCubit>()),
       ],
       child: const SafeArea(
         child: HomeViewBody(),
